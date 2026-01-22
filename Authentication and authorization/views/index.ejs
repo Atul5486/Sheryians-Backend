@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication and authorization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-full h-screen bg-zinc-900 p-10 text-white">
+        <h1 class="text-2xl mb-4">Create User</h1>
+        <form action="/create" method="post">
+            <input class="px-3 py-2 bg-transparent border border-2-zinc-800 outline-none rounded-md" type="text" placeholder="Enter Username" name="username" required>
+            <input class="mx-3 px-3 py-2 bg-transparent border border-2-zinc-800 outline-none rounded-md" type="email" placeholder="Enter email" name="email" required>
+            <input class="px-3 py-2 bg-transparent border border-2-zinc-800 outline-none rounded-md" type="password" placeholder="Enter password" name="password" required>
+            <input class="mx-3 px-3 py-2 bg-transparent border border-2-zinc-800 outline-none rounded-md" type="number" placeholder="Enter age" name="age" required>
+            <input class="px-3 py-2 bg-blue-500 outline-none rounded-md" type="submit" value="Create User">
+        </form>
+    </div>
+</body>
+</html>
