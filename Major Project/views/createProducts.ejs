@@ -1,0 +1,62 @@
+<%- include("header.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scatch - A permium Bag Shop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+  </style>
+</head>
+<body>
+   <% if (success.length > 0) { %>
+  <div class="toast absolute top-10 left-1/2 -translate-y-1/2 -translate-x-1/2 px-3 py-2 px-3 rounded-md bg-green-500">
+    <span class="inline-block my-1 text-white">
+      <%= success %>
+    </span>
+  </div>
+  <script>
+    setTimeout(() => {
+      const toast = document.getElementsByClassName('toast')[0];
+      if (toast) {
+        toast.remove();
+      }
+    }, 4000);
+  </script>
+<% } %>
+  <main class="w-full h-full bg-red-200 flex">
+  <div class="flex min-h-full flex-col w-[25%] bg-green-100">
+    </div>
+  <div class="py-16 px-5">
+      <h3 class="text-2xl font-medium">Create New Product</h3>
+      <h5 class="my-2 font-bold">Product Details</h5>
+      <form class="flex flex-col gap-4 items-start" action="/products/create" method="post" enctype="multipart/form-data">
+      <label for="image">Product image </label>
+      <input type="file" placeholder="" name="image">
+       <div class="product flex gap-3 flex-wrap w-full">
+       <input class="w-80 p-2 rounded-md border-2 outline-none focus:border-sky-500" type="text" placeholder="Product Name" name="name">
+       <input class="w-80 p-2 rounded-md border-2 outline-none focus:border-sky-500" type="text" placeholder="Product Price" name="price">
+       <input class="w-80 p-2 rounded-md border-2 outline-none focus:border-sky-500" type="text" placeholder="Discount Price" name="discount">
+     </div>
+     <h3 class="font-bold">Panel Color</h3>
+     <div class="panelcolor flex gap-3 flex-wrap w-full">
+       <input class="w-80 rounded-md p-2 border-2 outline-none focus:border-sky-500" type="text" placeholder="Background color" name="bgcolor">
+       <input class="w-80 rounded-md p-2 border-2 outline-none focus:border-sky-500" type="text" placeholder="Panel Color" name="panelcolor">
+       <input class="w-80 rounded-md p-2 border-2 outline-none focus:border-sky-500" type="text" placeholder="Text Color" name="textcolor">
+     </div>
+     <input class="bg-blue-500 p-2 rounded-md" type="submit" value="Create New Product">
+    </form>
+</div>
+ </main>
+</body>
+</html>

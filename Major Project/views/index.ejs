@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scatch - A permium Bag Shop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+  <% if (error.length > 0) { %>
+  <div class="toast absolute top-10 left-1/2 -translate-y-1/2 -translate-x-1/2 p-3 rounded-md bg-red-500">
+    <span class="inline-block my-1 text-white">
+      <%= error %>
+    </span>
+  </div> 
+  <script>
+    setTimeout(() => {
+      const toast = document.getElementsByClassName('toast')[0];
+      if (toast) {
+        toast.remove(); // better than innerHTML='' ✅
+      }
+    }, 3000);
+  </script>
+<% } %>
+
+  <div class="flex items-center justify-around h-full">
+    <div class="signup w-1/3 p-5">
+        <h1 class="text-3xl font-medium">Welcome to <span class="text-blue-400">Scatch</span></h1>
+        <h5>Create your account</h5>
+        <form  method="post" action='/users/register' class="flex flex-col gap-2 my-2">
+            <input class="px-4 py-2 rounded-md outline-none boreder-none bg-gray-200 text-black" type="text" placeholder="Fullname" required name="fullname">
+            <input class="px-4 py-2 rounded-md outline-none boreder-none bg-gray-200 text-black" type="email" placeholder="Email" required name="email">
+            <input autocomplete="off" class="px-4 py-2 rounded-md outline-none boreder-none bg-gray-200 text-black" type="password" placeholder="Password" required name="password">
+            <input class="px-4 py-1 rounded-full outline-none boreder-none bg-blue-500 w-1/2" type="submit" value="Create My Account">
+        </form>
+    </div>
+    <div class="login w-1/3">
+        <h1 class="text-3xl">Login your account</h1>
+        <form  method="post" action="/users/login"  class="flex flex-col gap-2 my-4">
+          <input class="px-4 py-2 rounded-md outline-none boreder-none bg-gray-200 text-black" type="email" placeholder="Email" required name="email">
+          <input autocomplete="off" class="px-4 py-2 rounded-md outline-none boreder-none bg-gray-200 text-black" type="password" placeholder="Password" required name="password">
+            <input class="w-1/4 px-4 py-1 rounded-full outline-none boreder-none bg-blue-500" type="submit" value="Login">
+        </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
